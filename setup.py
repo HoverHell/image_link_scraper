@@ -22,7 +22,7 @@ def read(*names, **kwargs):
     ).read()
 
 
-setup(
+setup_kwargs = dict(
     name='image_link_scraper',
     version='0.1.0',
     license='MIT license',
@@ -41,7 +41,8 @@ setup(
     zip_safe=False,
     classifiers=[
         # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
-        'Development Status :: 5 - Production/Stable',
+        # 'Development Status :: 5 - Production/Stable',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: Unix',
@@ -60,15 +61,20 @@ setup(
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
     install_requires=[
-        # This is an upper-bound list of requirements; various parts of this
-        # library can work without them. TODO: to `extras` with them.
-        'click',
-        'six',
-        'requests',
-        'beautifulsoup4',
-        'praw',
+        # Various parts of this library can be used without any additional
+        # dependencies.
+        # To install it with all potential requirements, use `image_link_scraper[all]`.
     ],
     extras_require={
+        # note: https://stackoverflow.com/questions/30239152/specify-extras-require-with-pip-install-e#30239714
+        'cli': ['click'],
+        'all': [
+            'click',
+            'requests',
+            'beautifulsoup4',
+            # 'praw',
+            'python-magic',
+        ],
         # eg:
         #   'rst': ['docutils>=0.11'],
         #   ':python_version=="2.6"': ['argparse'],
@@ -79,3 +85,7 @@ setup(
         ]
     },
 )
+
+
+if __name__ == '__main__':
+    setup(**setup_kwargs)
