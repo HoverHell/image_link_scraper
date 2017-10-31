@@ -60,10 +60,13 @@ setup(
         # eg: 'keyword1', 'keyword2', 'keyword3',
     ],
     install_requires=[
+        # This is an upper-bound list of requirements; various parts of this
+        # library can work without them. TODO: to `extras` with them.
         'click',
         'six',
         'requests',
         'beautifulsoup4',
+        'praw',
     ],
     extras_require={
         # eg:

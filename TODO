@@ -1,0 +1,13 @@
+
+# Things somewhat lacking in the template at https://github.com/ionelmc/cookiecutter-pylibrary
+template: tox docker: https://github.com/themattrix/python-pypi-template
+template: travis-cli docker notes: https://hub.docker.com/r/nouchka/travis-cli/
+
+
+packaging: move the requirements to `extras`, document it.
+packaging: docker-compose with the cli
+
+
+# Things that can be mined for ideas and implementations
+external examples: https://www.reddit.com/r/Python/comments/1kshjh/reddit_scraper_scraping_top_images_from_your/
+external examples: https://www.reddit.com/r/learnpython/comments/28v2lh/reddit_image_scraper_my_first_project/
