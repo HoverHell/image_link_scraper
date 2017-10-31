@@ -10,12 +10,6 @@ env:
     - TOXENV=docs
 matrix:
   include:
-    - python: '2.7'
-      env:
-        - TOXENV=py27,report,coveralls
-    - python: '3.3'
-      env:
-        - TOXENV=py33,report,coveralls
     - python: '3.4'
       env:
         - TOXENV=py34,report,coveralls
@@ -27,7 +21,7 @@ matrix:
         - TOXENV=py36,report,coveralls
     - python: 'pypy-5.4'
       env:
-        - TOXENV=pypy,report,coveralls
+        - TOXENV=pypy3,report,coveralls
 before_install:
   - python --version
   - uname -a
