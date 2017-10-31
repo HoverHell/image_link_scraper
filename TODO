@@ -1,7 +1,7 @@
 
 # Things somewhat lacking in the template at https://github.com/ionelmc/cookiecutter-pylibrary
 template: tox docker: https://github.com/themattrix/python-pypi-template
-template: travis-cli docker notes: https://hub.docker.com/r/nouchka/travis-cli/
+template: travis-cli docker notes: https://github.com/skandyla/docker-travis-cli
 
 
 packaging: *MAYBE*: move the requirements to `extras`, document it.

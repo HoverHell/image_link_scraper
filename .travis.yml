@@ -3,41 +3,48 @@ sudo: false
 cache: pip
 env:
   global:
-    - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
-    - SEGFAULT_SIGNALS=all
+  - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+  - SEGFAULT_SIGNALS=all
   matrix:
-    - TOXENV=check
-    - TOXENV=docs
+  - TOXENV=check
+  - TOXENV=docs
 matrix:
   include:
-    - python: '3.4'
-      env:
-        - TOXENV=py34,report,coveralls
-    - python: '3.5'
-      env:
-        - TOXENV=py35,report,coveralls
-    - python: '3.6'
-      env:
-        - TOXENV=py36,report,coveralls
-    - python: 'pypy-5.4'
-      env:
-        - TOXENV=pypy3,report,coveralls
+  - python: '3.4'
+    env:
+    - TOXENV=py34,report,coveralls
+  - python: '3.5'
+    env:
+    - TOXENV=py35,report,coveralls
+  - python: '3.6'
+    env:
+    - TOXENV=py36,report,coveralls
+  - python: pypy-5.4
+    env:
+    - TOXENV=pypy3,report,coveralls
 before_install:
-  - python --version
-  - uname -a
-  - lsb_release -a
+- python --version
+- uname -a
+- lsb_release -a
 install:
-  - pip install tox
-  - virtualenv --version
-  - easy_install --version
-  - pip --version
-  - tox --version
+- pip install tox
+- virtualenv --version
+- easy_install --version
+- pip --version
+- tox --version
 script:
-  - tox -v
+- tox -v
 after_failure:
-  - more .tox/log/* | cat
-  - more .tox/*/log/* | cat
+- more .tox/log/* | cat
+- more .tox/*/log/* | cat
 notifications:
   email:
     on_success: never
     on_failure: always
+deploy:
+  provider: pypi
+  user: HoverHell
+  password:
+    secure: cEZMkeQamxWRiCZsnWVamavdRurNSKQ03Bbnq2/QJ+lCDncUZQIQwsB/OvkBn+oqKpCAymoVLJW6llbPvj5Mn5VjLUpVeXcumU4VNtoztsDrtfYLW6IfnKvRf6DhSVD/KYuUzwJnFYhZCEAqEypeH+sH+3FCRK/qfgnUkif6lTVmsE3a9D6adRzumd1vaCo+jgkfqWmsfO/Z/G35hte7t+TaIEApxGlA4KkNJBebFCb6ivdECUBhqH24WMn3ussYUKmlamyBZA/jj6qnCS6fJl2UBDG30lI/MaUm/YiD11EMpGtLyoo+yj2h3b8EaSiuo8IMW1O6LjDWPmzR+S2geEYTHEw3hKjojy7jFcJbQEzaWyFCvm3ytBwOsTVtfq4YvEDToPT/WVN41HBW7gi195pprQyt9wGdhe5F+6gRY3uKO96dNgC9Voi/xJZgDBqV0r/F/wo7qN12IRJFvYJlclEGdP8AQlkE3iNvsmAzP2ajAPWwy36C6rOSJ7jYMf7C+XbkK3L/CulxaEWoeSWMtFg81Z2GWSus/S/nayzneTrojL5nvFBdB8gCpHtZKa274/NeveAGNuzK7PtebbLtqAfVqPLieYNiZTzVpj1xBdFkH9dgrNdw4rRIlQFc/Ff3jrpWz5CdcA2LyNbLRUXPHr49UOF0P7gpR94a5MG4hv4=
+  on:
+    tags: true
