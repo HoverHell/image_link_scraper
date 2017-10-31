@@ -1,0 +1,52 @@
+# This file exists so you can easily regenerate your project.
+#
+# `cookiepatcher` is a convenient shim around `cookiecutter`
+# for regenerating projects (it will generate a .cookiecutterrc
+# automatically for any template). To use it:
+#
+#    pip install cookiepatcher
+#    cookiepatcher gh:ionelmc/cookiecutter-pylibrary project-path
+#
+# See:
+#    https://pypi.python.org/pypi/cookiepatcher
+#
+# Alternatively, you can run:
+#
+#    cookiecutter --overwrite-if-exists --config-file=project-path/.cookiecutterrc gh:ionelmc/cookiecutter-pylibrary
+
+default_context:
+
+    appveyor:                  'yes'
+    c_extension_function:      'longest'
+    c_extension_module:        '_image_link_scraper'
+    c_extension_optional:      'no'
+    c_extension_support:       'no'
+    codacy:                    'no'
+    codeclimate:               'no'
+    codecov:                   'no'
+    command_line_interface:    'click'
+    command_line_interface_bin_name: 'image_link_scraper_info'
+    coveralls:                 'yes'
+    distribution_name:         'image_link_scraper'
+    email:                     'hoverhell@gmail.com'
+    full_name:                 'HoverHell'
+    github_username:           'HoverHell'
+    landscape:                 'no'
+    license:                   'MIT license'
+    linter:                    'flake8'
+    package_name:              'image_link_scraper'
+    project_name:              'image_link_scraper'
+    project_short_description: 'A library for scraping image(s) from links (expecially ones posted to reddit).'
+    release_date:              '-'
+    repo_name:                 'image_link_scraper'
+    requiresio:                'yes'
+    scrutinizer:               'no'
+    sphinx_doctest:            'yes'
+    sphinx_theme:              'sphinx-py3doc-enhanced-theme'
+    test_matrix_configurator:  'no'
+    test_matrix_separate_coverage: 'no'
+    test_runner:               'pytest'
+    travis:                    'yes'
+    version:                   '0.1.0'
+    website:                   '-'
+    year:                      'now'

@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/image_link_scraper
+   */site-packages/image_link_scraper
+
+[run]
+branch = true
+source =
+    image_link_scraper
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
